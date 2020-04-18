@@ -9,7 +9,7 @@ public class DirectedCycle {
     private boolean[] onStack;
     private Deque<Integer> cycle;
 
-    public DirectedCycle(Digraph graph) {
+    public DirectedCycle(DirectedGraph graph) {
         this.marked = new boolean[graph.getNumberOfVertices()];
         this.edgeTo = new int[graph.getNumberOfVertices()];
         this.onStack = new boolean[graph.getNumberOfVertices()];
@@ -18,7 +18,7 @@ public class DirectedCycle {
         }
     }
 
-    private void dfs(Digraph graph, int vertex) {
+    private void dfs(DirectedGraph graph, int vertex) {
         onStack[vertex] = true;
         marked[vertex] = true;
         for (Integer adjacentVertex : graph.adj(vertex)) {

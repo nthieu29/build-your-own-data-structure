@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Digraph {
+public class DirectedGraph {
     private List<Integer>[] adj;
     private int numberOfVertices;
     private int numberOfEdges;
 
-    public Digraph(int numberOfVertices) {
+    public DirectedGraph(int numberOfVertices) {
         this.numberOfEdges = 0;
         this.numberOfVertices = numberOfVertices;
         this.adj = (ArrayList<Integer>[]) new ArrayList[numberOfVertices];
@@ -36,24 +36,24 @@ public class Digraph {
         return adj[v];
     }
 
-    public Digraph reverse() {
-        Digraph digraph = new Digraph(numberOfVertices);
+    public DirectedGraph reverse() {
+        DirectedGraph directedGraph = new DirectedGraph(numberOfVertices);
         for (int i = 0; i < numberOfVertices; i++) {
             for (Integer v : adj(i)) {
-                digraph.addEdge(v, i);
+                directedGraph.addEdge(v, i);
             }
         }
-        return digraph;
+        return directedGraph;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Digraph digraph = (Digraph) o;
-        return numberOfVertices == digraph.numberOfVertices &&
-                numberOfEdges == digraph.numberOfEdges &&
-                Arrays.equals(adj, digraph.adj);
+        DirectedGraph directedGraph = (DirectedGraph) o;
+        return numberOfVertices == directedGraph.numberOfVertices &&
+                numberOfEdges == directedGraph.numberOfEdges &&
+                Arrays.equals(adj, directedGraph.adj);
     }
 
     @Override

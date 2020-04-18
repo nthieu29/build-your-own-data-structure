@@ -5,7 +5,7 @@ public class StrongConnectedComponent {
     private boolean[] marked;
     private int count;
 
-    public StrongConnectedComponent(Digraph graph) {
+    public StrongConnectedComponent(DirectedGraph graph) {
         this.id = new int[graph.getNumberOfVertices()];
         this.marked = new boolean[graph.getNumberOfVertices()];
         this.count = 0;
@@ -18,7 +18,7 @@ public class StrongConnectedComponent {
         }
     }
 
-    private void dfs(Digraph graph, Integer vertex) {
+    private void dfs(DirectedGraph graph, Integer vertex) {
         marked[vertex] = true;
         id[vertex] = count;
         for (Integer adjacentVertex : graph.adj(vertex)) {

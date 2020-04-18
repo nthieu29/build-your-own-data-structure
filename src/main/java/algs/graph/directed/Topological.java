@@ -3,7 +3,7 @@ package algs.graph.directed;
 public class Topological {
     private Iterable<Integer> order;
 
-    public Topological(Digraph graph) {
+    public Topological(DirectedGraph graph) {
         DirectedCycle directedCycle = new DirectedCycle(graph);
         if (!directedCycle.hasCycle()) {
             DepthFirstOrder depthFirstOrder = new DepthFirstOrder(graph);

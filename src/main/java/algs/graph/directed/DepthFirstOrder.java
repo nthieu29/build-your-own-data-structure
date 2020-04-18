@@ -11,22 +11,22 @@ public class DepthFirstOrder {
 
     private boolean[] marked;
 
-    public DepthFirstOrder(Digraph digraph) {
+    public DepthFirstOrder(DirectedGraph directedGraph) {
         this.preOrder = new ArrayDeque<>();
         this.postOrder = new ArrayDeque<>();
         this.reversePostOrder = new ArrayDeque<>();
-        this.marked = new boolean[digraph.getNumberOfVertices()];
-        for (int i = 0; i < digraph.getNumberOfVertices(); i++) {
-            if (!marked[i]) dfs(digraph, i);
+        this.marked = new boolean[directedGraph.getNumberOfVertices()];
+        for (int i = 0; i < directedGraph.getNumberOfVertices(); i++) {
+            if (!marked[i]) dfs(directedGraph, i);
         }
     }
 
-    private void dfs(Digraph digraph, int vertex) {
+    private void dfs(DirectedGraph directedGraph, int vertex) {
         preOrder.add(vertex);
         marked[vertex] = true;
-        for (Integer adjacentVertex : digraph.adj(vertex)) {
+        for (Integer adjacentVertex : directedGraph.adj(vertex)) {
             if (!marked[adjacentVertex]) {
-                dfs(digraph, adjacentVertex);
+                dfs(directedGraph, adjacentVertex);
             }
         }
         postOrder.add(vertex);

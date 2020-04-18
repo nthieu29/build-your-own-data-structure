@@ -11,7 +11,7 @@ class DirectedCycleTest {
 
     @BeforeAll
     public static void setup() {
-        Digraph graph = new Digraph(6);
+        DirectedGraph graph = new DirectedGraph(6);
         graph.addEdge(0, 5);
         graph.addEdge(5, 4);
         graph.addEdge(4, 3);

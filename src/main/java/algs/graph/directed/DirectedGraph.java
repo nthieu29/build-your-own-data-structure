@@ -1,11 +1,13 @@
 package algs.graph.directed;
 
+import algs.graph.Graph;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class DirectedGraph {
+public class DirectedGraph implements Graph {
     private List<Integer>[] adj;
     private int numberOfVertices;
     private int numberOfEdges;
@@ -19,19 +21,23 @@ public class DirectedGraph {
         }
     }
 
+    @Override
     public int getNumberOfVertices() {
         return numberOfVertices;
     }
 
+    @Override
     public int getNumberOfEdges() {
         return numberOfEdges;
     }
 
+    @Override
     public void addEdge(int v, int w) {
         adj[v].add(w);
         numberOfEdges++;
     }
 
+    @Override
     public Iterable<Integer> adj(int v) {
         return adj[v];
     }

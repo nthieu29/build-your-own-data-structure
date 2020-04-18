@@ -1,9 +1,11 @@
 package algs.graph.undirected;
 
+import algs.graph.Graph;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class UndirectedGraph {
+public class UndirectedGraph implements Graph {
     private final int numberOfVertices;
     private int numberOfEdges;
     private List<Integer>[] adj;
@@ -17,20 +19,24 @@ public class UndirectedGraph {
         }
     }
 
+    @Override
     public void addEdge(int v, int w) {
         this.adj[v].add(w);
         this.adj[w].add(v);
         this.numberOfEdges++;
     }
 
+    @Override
     public Iterable<Integer> adj(int vertex) {
         return this.adj[vertex];
     }
 
+    @Override
     public int getNumberOfVertices() {
         return numberOfVertices;
     }
 
+    @Override
     public int getNumberOfEdges() {
         return numberOfEdges;
     }

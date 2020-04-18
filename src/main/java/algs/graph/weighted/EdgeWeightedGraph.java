@@ -39,6 +39,10 @@ public class EdgeWeightedGraph {
     }
 
     public int getNumberOfEdges() {
-        return numberOfEdges;
+        return this.numberOfEdges;
+    }
+
+    public int getNumberOfVertices() {
+        return this.numberOfVertices;
     }
 }

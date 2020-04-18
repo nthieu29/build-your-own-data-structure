@@ -9,7 +9,7 @@ class ConnectedComponentTest {
 
     @BeforeAll
     public static void setup() {
-        Graph graph = new Graph(13);
+        UndirectedGraph graph = new UndirectedGraph(13);
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
         graph.addEdge(0, 5);

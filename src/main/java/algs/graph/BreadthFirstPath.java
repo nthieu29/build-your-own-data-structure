@@ -1,6 +1,6 @@
 package algs.graph;
 
-import algs.graph.undirected.Graph;
+import algs.graph.undirected.UndirectedGraph;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -11,14 +11,14 @@ public class BreadthFirstPath {
     private boolean[] marked;
     private int[] edgeTo;
 
-    public BreadthFirstPath(Graph graph, int source) {
+    public BreadthFirstPath(UndirectedGraph graph, int source) {
         this.source = source;
         this.marked = new boolean[graph.getNumberOfVertices()];
         this.edgeTo = new int[graph.getNumberOfVertices()];
         bfs(graph, source);
     }
 
-    private void bfs(Graph graph, int source) {
+    private void bfs(UndirectedGraph graph, int source) {
         Queue<Integer> queue = new ArrayDeque<>();
         marked[source] = true;
         queue.offer(source);

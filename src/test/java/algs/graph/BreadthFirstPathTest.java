@@ -1,6 +1,6 @@
 package algs.graph;
 
-import algs.graph.undirected.Graph;
+import algs.graph.undirected.UndirectedGraph;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ class BreadthFirstPathTest {
 
     @BeforeAll
     public static void setup() {
-        Graph graph = new Graph(6);
+        UndirectedGraph graph = new UndirectedGraph(6);
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
         graph.addEdge(0, 5);

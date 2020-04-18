@@ -5,7 +5,7 @@ public class ConnectedComponent {
     private int[] id;
     private boolean[] marked;
 
-    public ConnectedComponent(Graph graph) {
+    public ConnectedComponent(UndirectedGraph graph) {
         int numberOfVertices = graph.getNumberOfVertices();
         this.marked = new boolean[numberOfVertices];
         this.id = new int[numberOfVertices];
@@ -18,7 +18,7 @@ public class ConnectedComponent {
         }
     }
 
-    private void dfs(Graph graph, int vertex) {
+    private void dfs(UndirectedGraph graph, int vertex) {
         marked[vertex] = true;
         id[vertex] = count;
         for (Integer adjacentVertex : graph.adj(vertex)) {

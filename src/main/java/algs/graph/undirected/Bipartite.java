@@ -5,7 +5,7 @@ public class Bipartite {
     private boolean[] color;
     private boolean bipartite;
 
-    public Bipartite(Graph graph) {
+    public Bipartite(UndirectedGraph graph) {
         this.marked = new boolean[graph.getNumberOfVertices()];
         this.color = new boolean[graph.getNumberOfVertices()];
         this.bipartite = true;
@@ -14,7 +14,7 @@ public class Bipartite {
         }
     }
 
-    private void dfs(Graph graph, int vertex) {
+    private void dfs(UndirectedGraph graph, int vertex) {
         marked[vertex] = true;
         for (Integer adjacentVertex : graph.adj(vertex)) {
             if (!marked[adjacentVertex]) {

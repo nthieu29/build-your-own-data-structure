@@ -3,12 +3,12 @@ package algs.graph.undirected;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Graph {
+public class UndirectedGraph {
     private final int numberOfVertices;
     private int numberOfEdges;
     private List<Integer>[] adj;
 
-    public Graph(int numberOfVertices) {
+    public UndirectedGraph(int numberOfVertices) {
         this.numberOfVertices = numberOfVertices;
         this.numberOfEdges = 0;
         this.adj = (ArrayList<Integer>[]) new ArrayList[numberOfVertices];

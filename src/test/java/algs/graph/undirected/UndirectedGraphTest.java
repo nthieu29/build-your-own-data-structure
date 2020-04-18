@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-class GraphTest {
-    private static Graph graph;
+class UndirectedGraphTest {
+    private static UndirectedGraph graph;
 
     @BeforeAll
     public static void setup() {
-        graph = new Graph(4);
+        graph = new UndirectedGraph(4);
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
         graph.addEdge(0, 3);

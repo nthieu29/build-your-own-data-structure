@@ -4,14 +4,14 @@ public class Cycle {
     private boolean hasCycle;
     private boolean[] marked;
 
-    public Cycle(Graph graph) {
+    public Cycle(UndirectedGraph graph) {
         this.marked = new boolean[graph.getNumberOfVertices()];
         for (int i = 0; i < graph.getNumberOfVertices(); i++) {
             if (!marked[i]) dfs(graph, i, i);
         }
     }
 
-    private void dfs(Graph graph, int v, int u) {
+    private void dfs(UndirectedGraph graph, int v, int u) {
         marked[v] = true;
         for (Integer w : graph.adj(v)) {
             if (!marked[w]) {

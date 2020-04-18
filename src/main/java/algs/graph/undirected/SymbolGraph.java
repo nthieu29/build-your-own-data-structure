@@ -1,6 +1,4 @@
-package algs.graph;
-
-import algs.graph.undirected.Graph;
+package algs.graph.undirected;
 
 import java.util.Map;
 

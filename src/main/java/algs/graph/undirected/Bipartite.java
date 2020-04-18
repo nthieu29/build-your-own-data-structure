@@ -1,6 +1,4 @@
-package algs.graph;
-
-import algs.graph.undirected.Graph;
+package algs.graph.undirected;
 
 public class Bipartite {
     private boolean[] marked;

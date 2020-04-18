@@ -1,6 +1,4 @@
-package algs.graph;
-
-import algs.graph.undirected.UndirectedGraph;
+package algs.graph.undirected;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

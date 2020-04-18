@@ -1,6 +1,5 @@
-package algs.graph;
+package algs.graph.undirected;
 
-import algs.graph.undirected.UndirectedGraph;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

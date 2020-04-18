@@ -1,10 +1,12 @@
 package algs.graph.undirected;
 
+import algs.graph.Path;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Queue;
 
-public class UndirectedBFS {
+public class UndirectedBFS implements Path {
     private int source;
     private boolean[] marked;
     private int[] edgeTo;
@@ -32,10 +34,12 @@ public class UndirectedBFS {
         }
     }
 
+    @Override
     public boolean hasPathTo(int destination) {
         return marked[destination];
     }
 
+    @Override
     public Iterable<Integer> pathTo(int destination) {
         if (!hasPathTo(destination)) return null;
         Deque<Integer> stack = new ArrayDeque<>();

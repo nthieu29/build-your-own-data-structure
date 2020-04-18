@@ -3,12 +3,12 @@ package algs.graph.undirected;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class DepthFirstPath {
+public class UndirectedDFS {
     private boolean[] marked;
     private int[] edgeTo;
     private int source;
 
-    public DepthFirstPath(UndirectedGraph graph, int source) {
+    public UndirectedDFS(UndirectedGraph graph, int source) {
         this.marked = new boolean[graph.getNumberOfVertices()];
         this.edgeTo = new int[graph.getNumberOfVertices()];
         this.source = source;

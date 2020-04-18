@@ -4,12 +4,12 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Queue;
 
-public class BreadthFirstPath {
+public class UndirectedBFS {
     private int source;
     private boolean[] marked;
     private int[] edgeTo;
 
-    public BreadthFirstPath(UndirectedGraph graph, int source) {
+    public UndirectedBFS(UndirectedGraph graph, int source) {
         this.source = source;
         this.marked = new boolean[graph.getNumberOfVertices()];
         this.edgeTo = new int[graph.getNumberOfVertices()];

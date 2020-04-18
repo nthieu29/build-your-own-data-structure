@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-class BreadthFirstPathTest {
-    private static BreadthFirstPath breadthFirstPath;
+class UndirectedBFSTest {
+    private static UndirectedBFS undirectedBFS;
 
     @BeforeAll
     public static void setup() {
@@ -20,17 +20,17 @@ class BreadthFirstPathTest {
         graph.addEdge(2, 4);
         graph.addEdge(4, 3);
         graph.addEdge(5, 3);
-        breadthFirstPath = new BreadthFirstPath(graph, 0);
+        undirectedBFS = new UndirectedBFS(graph, 0);
     }
 
     @Test
     public void hasPathToShouldReturnTrue() {
-        Assertions.assertTrue(breadthFirstPath.hasPathTo(4));
+        Assertions.assertTrue(undirectedBFS.hasPathTo(4));
     }
 
     @Test
     public void pathToShouldBeCorrect() {
-        Iterable<Integer> actual = breadthFirstPath.pathTo(4);
+        Iterable<Integer> actual = undirectedBFS.pathTo(4);
         Iterable<Integer> expected = Arrays.asList(0, 2, 4);
         Assertions.assertIterableEquals(expected, actual);
     }

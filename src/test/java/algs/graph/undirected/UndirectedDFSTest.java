@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-class DepthFirstPathTest {
-    private static DepthFirstPath depthFirstPath;
+class UndirectedDFSTest {
+    private static UndirectedDFS undirectedDFS;
 
     @BeforeAll
     public static void setup() {
@@ -16,22 +16,22 @@ class DepthFirstPathTest {
         graph.addEdge(0, 2);
         graph.addEdge(2, 3);
         graph.addEdge(3, 4);
-        depthFirstPath = new DepthFirstPath(graph, 0);
+        undirectedDFS = new UndirectedDFS(graph, 0);
     }
 
     @Test
     public void hasPathShouldReturnTrue() {
-        Assertions.assertTrue(depthFirstPath.hasPathTo(4));
+        Assertions.assertTrue(undirectedDFS.hasPathTo(4));
     }
 
     @Test
     public void hasPathShouldReturnFalse() {
-        Assertions.assertFalse(depthFirstPath.hasPathTo(5));
+        Assertions.assertFalse(undirectedDFS.hasPathTo(5));
     }
 
     @Test
     public void pathToShouldReturnCorrectly() {
-        Iterable<Integer> actual = depthFirstPath.pathTo(4);
+        Iterable<Integer> actual = undirectedDFS.pathTo(4);
         Iterable<Integer> expected = Arrays.asList(0, 2, 3, 4);
         Assertions.assertIterableEquals(actual, expected);
     }

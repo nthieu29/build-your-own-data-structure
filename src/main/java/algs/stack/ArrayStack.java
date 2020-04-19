@@ -5,41 +5,41 @@ import java.util.NoSuchElementException;
 
 public class ArrayStack<E> implements Stack<E> {
     private static final int DEFAULT_CAPACITY = 8;
-    private E[] array;
+    private E[] stack;
     private int count;
 
     public ArrayStack() {
         this.count = 0;
-        this.array = (E[]) new Object[DEFAULT_CAPACITY];
+        this.stack = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
     public ArrayStack(int capacity) {
         this.count = 0;
-        this.array = (E[]) new Object[capacity];
+        this.stack = (E[]) new Object[capacity];
     }
 
     @Override
     public void push(E e) {
-        if (count == array.length) resize(array.length * 2);
-        array[count] = e;
+        if (count == stack.length) resize(stack.length * 2);
+        stack[count] = e;
         count++;
     }
 
     private void resize(int newCapacity) {
         E[] newArray = (E[]) new Object[newCapacity];
         for (int i = 0; i < count; i++) {
-            newArray[i] = array[i];
+            newArray[i] = stack[i];
         }
-        this.array = newArray;
+        this.stack = newArray;
     }
 
     @Override
     public E pop() {
         if (isEmpty()) throw new NoSuchElementException("Stack is empty!");
-        E result = array[count - 1];
-        array[count - 1] = null;
+        E result = stack[count - 1];
+        stack[count - 1] = null;
         count--;
-        if (count > 0 && count == array.length / 4) resize(array.length / 2);
+        if (count > 0 && count == stack.length / 4) resize(stack.length / 2);
         return result;
     }
 
@@ -68,7 +68,7 @@ public class ArrayStack<E> implements Stack<E> {
 
         @Override
         public E next() {
-            E result = array[currentIndex - 1];
+            E result = stack[currentIndex - 1];
             currentIndex--;
             return result;
         }

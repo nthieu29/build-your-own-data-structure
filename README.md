@@ -6,6 +6,8 @@ Inspired by [build-your-own-x](https://github.com/danistefanovic/build-your-own-
 ## Introduction
 This repository is a Maven project and it contains popular and basic data structure implementation and their unit tests:
 * Stack
+    * Array implementation :white_check_mark:
+    * Linked node implementation :white_check_mark:
 * Queue
 * Priority Queue
 * Union Find
@@ -37,7 +39,7 @@ This repository is a Maven project and it contains popular and basic data struct
 
 Note: :white_check_mark: means implementation and its unit test are available in this repository. Other parts are under construction.
 
-## How to
+## How to use
 * Just clone this repository and provide your own data structure implementations to make all tests pass.
 * Run test by following command:
 

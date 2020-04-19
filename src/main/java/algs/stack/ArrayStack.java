@@ -1,5 +1,6 @@
 package algs.stack;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class ArrayStack<E> implements Stack<E> {
@@ -50,5 +51,26 @@ public class ArrayStack<E> implements Stack<E> {
     @Override
     public int size() {
         return this.count;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new ArrayStackIterator();
+    }
+
+    private class ArrayStackIterator implements Iterator<E> {
+        private int currentIndex = size();
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex > 0;
+        }
+
+        @Override
+        public E next() {
+            E result = array[currentIndex - 1];
+            currentIndex--;
+            return result;
+        }
     }
 }

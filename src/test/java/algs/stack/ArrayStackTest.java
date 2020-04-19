@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 class ArrayStackTest {
@@ -63,5 +65,26 @@ class ArrayStackTest {
     @Test
     public void shouldThrowExceptionWhenPopOnEmptyStack() {
         Assertions.assertThrows(NoSuchElementException.class, () -> stack.pop());
+    }
+
+    @Test
+    public void shouldIterableCorrectly() {
+        stack.push(0);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.push(6);
+        stack.push(7);
+        stack.push(8);
+        stack.push(9);
+        stack.push(10);
+        List<Integer> expectedOrder = Arrays.asList(10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0);
+        int indexInExpectedOrder = 0;
+        for (Integer currentInteger : stack) {
+            Assertions.assertEquals(expectedOrder.get(indexInExpectedOrder), currentInteger);
+            indexInExpectedOrder++;
+        }
     }
 }

@@ -1,5 +1,6 @@
 package algs.stack;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class LinkedStack<E> implements Stack<E> {
@@ -39,10 +40,29 @@ public class LinkedStack<E> implements Stack<E> {
         return this.count;
     }
 
+    @Override
+    public Iterator<E> iterator() {
+        return new LinkedStackIterator();
+    }
+
     private class Node {
         E element;
         Node next;
     }
 
+    private class LinkedStackIterator implements Iterator<E> {
+        private Node nextNode = first;
 
+        @Override
+        public boolean hasNext() {
+            return nextNode != null;
+        }
+
+        @Override
+        public E next() {
+            E result = nextNode.element;
+            nextNode = nextNode.next;
+            return result;
+        }
+    }
 }

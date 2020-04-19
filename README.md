@@ -9,7 +9,9 @@ This repository is a Maven project and it contains popular and basic data struct
     * Array implementation :white_check_mark:
     * Linked node implementation :white_check_mark:
 * Queue
-* Priority Queue
+    * Array implementation :white_check_mark:
+    * Linked node implementation :white_check_mark:
+    * Priority Queue
 * Union Find
     * Quick Find :white_check_mark:
     * Quick Union :white_check_mark:

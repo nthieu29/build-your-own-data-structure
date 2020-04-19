@@ -51,17 +51,17 @@ public class LinkedStack<E> implements Stack<E> {
     }
 
     private class LinkedStackIterator implements Iterator<E> {
-        private Node nextNode = first;
+        private Node currentNode = first;
 
         @Override
         public boolean hasNext() {
-            return nextNode != null;
+            return currentNode != null;
         }
 
         @Override
         public E next() {
-            E result = nextNode.element;
-            nextNode = nextNode.next;
+            E result = currentNode.element;
+            currentNode = currentNode.next;
             return result;
         }
     }

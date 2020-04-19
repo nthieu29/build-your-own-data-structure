@@ -12,7 +12,7 @@ class ArrayStackTest {
     private Stack<Integer> stack;
 
     @BeforeEach
-    public void setupEachTest() {
+    public void setupBeforeEachTest() {
         stack = new ArrayStack<>();
     }
 

@@ -4,6 +4,8 @@
 name: Java CI with Maven - Unit Test only
 
 on:
+  push:
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 

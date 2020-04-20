@@ -1,10 +1,11 @@
 package algs.graph.directed;
 
 import algs.graph.Path;
+import algs.queue.ArrayQueue;
+import algs.queue.Queue;
+import algs.stack.ArrayStack;
+import algs.stack.Stack;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Queue;
 
 public class DirectedBFS implements Path {
     private int[] edgeTo;
@@ -19,7 +20,7 @@ public class DirectedBFS implements Path {
     }
 
     private void bfs(DirectedGraph graph, int source) {
-        Queue<Integer> queue = new ArrayDeque<>();
+        Queue<Integer> queue = new ArrayQueue<>();
         marked[source] = true;
         queue.offer(source);
         while (!queue.isEmpty()) {
@@ -43,7 +44,7 @@ public class DirectedBFS implements Path {
     @Override
     public Iterable<Integer> pathTo(int v) {
         if (!hasPathTo(v)) return null;
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new ArrayStack<>();
         for (int x = v; x != source; x = edgeTo[x]) {
             stack.push(x);
         }

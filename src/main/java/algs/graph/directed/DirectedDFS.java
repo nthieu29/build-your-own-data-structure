@@ -1,9 +1,9 @@
 package algs.graph.directed;
 
 import algs.graph.Path;
+import algs.stack.ArrayStack;
+import algs.stack.Stack;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
 
 public class DirectedDFS implements Path {
     private boolean[] marked;
@@ -35,7 +35,7 @@ public class DirectedDFS implements Path {
     @Override
     public Iterable<Integer> pathTo(int v) {
         if (!hasPathTo(v)) return null;
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new ArrayStack<>();
         for (int x = v; x != source; x = edgeTo[x]) {
             stack.push(x);
         }

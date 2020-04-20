@@ -1,13 +1,13 @@
 package algs.graph.directed;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import algs.stack.ArrayStack;
+import algs.stack.Stack;
 
 public class DirectedCycle {
     private boolean[] marked;
     private int[] edgeTo;
     private boolean[] onStack;
-    private Deque<Integer> cycle;
+    private Stack<Integer> cycle;
 
     public DirectedCycle(DirectedGraph graph) {
         this.marked = new boolean[graph.getNumberOfVertices()];
@@ -27,7 +27,7 @@ public class DirectedCycle {
                 edgeTo[adjacentVertex] = vertex;
                 dfs(graph, adjacentVertex);
             } else if (onStack[adjacentVertex]) {
-                cycle = new ArrayDeque<>();
+                cycle = new ArrayStack<>();
                 for (int x = vertex; x != adjacentVertex; x = edgeTo[x]) {
                     cycle.push(x);
                 }

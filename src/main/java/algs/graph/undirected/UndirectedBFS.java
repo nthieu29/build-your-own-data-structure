@@ -1,10 +1,10 @@
 package algs.graph.undirected;
 
 import algs.graph.Path;
-
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Queue;
+import algs.queue.ArrayQueue;
+import algs.queue.Queue;
+import algs.stack.ArrayStack;
+import algs.stack.Stack;
 
 public class UndirectedBFS implements Path {
     private int source;
@@ -19,7 +19,7 @@ public class UndirectedBFS implements Path {
     }
 
     private void bfs(UndirectedGraph graph, int source) {
-        Queue<Integer> queue = new ArrayDeque<>();
+        Queue<Integer> queue = new ArrayQueue<>();
         marked[source] = true;
         queue.offer(source);
         while (!queue.isEmpty()) {
@@ -42,7 +42,7 @@ public class UndirectedBFS implements Path {
     @Override
     public Iterable<Integer> pathTo(int destination) {
         if (!hasPathTo(destination)) return null;
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new ArrayStack<>();
         for (int x = destination; x != source; x = edgeTo[x]) {
             stack.push(x);
         }

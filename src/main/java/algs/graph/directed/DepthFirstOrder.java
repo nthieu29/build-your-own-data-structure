@@ -1,20 +1,22 @@
 package algs.graph.directed;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Queue;
+
+import algs.queue.ArrayQueue;
+import algs.queue.Queue;
+import algs.stack.ArrayStack;
+import algs.stack.Stack;
 
 public class DepthFirstOrder {
     private Queue<Integer> preOrder;
     private Queue<Integer> postOrder;
-    private Deque<Integer> reversePostOrder;
+    private Stack<Integer> reversePostOrder;
 
     private boolean[] marked;
 
     public DepthFirstOrder(DirectedGraph directedGraph) {
-        this.preOrder = new ArrayDeque<>();
-        this.postOrder = new ArrayDeque<>();
-        this.reversePostOrder = new ArrayDeque<>();
+        this.preOrder = new ArrayQueue<>();
+        this.postOrder = new ArrayQueue<>();
+        this.reversePostOrder = new ArrayStack<>();
         this.marked = new boolean[directedGraph.getNumberOfVertices()];
         for (int i = 0; i < directedGraph.getNumberOfVertices(); i++) {
             if (!marked[i]) dfs(directedGraph, i);
@@ -22,14 +24,14 @@ public class DepthFirstOrder {
     }
 
     private void dfs(DirectedGraph directedGraph, int vertex) {
-        preOrder.add(vertex);
+        preOrder.offer(vertex);
         marked[vertex] = true;
         for (Integer adjacentVertex : directedGraph.adj(vertex)) {
             if (!marked[adjacentVertex]) {
                 dfs(directedGraph, adjacentVertex);
             }
         }
-        postOrder.add(vertex);
+        postOrder.offer(vertex);
         reversePostOrder.push(vertex);
     }
 

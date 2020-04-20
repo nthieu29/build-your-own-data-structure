@@ -1,17 +1,16 @@
 package algs.graph.weighted;
 
+import algs.queue.ArrayQueue;
+import algs.queue.PriorityQueue;
+import algs.queue.Queue;
 import algs.uf.QuickUnion;
 import algs.uf.UF;
-
-import java.util.ArrayDeque;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class KruskalMST implements MST {
     private Queue<Edge> minimumSpanningTree;
 
     public KruskalMST(EdgeWeightedGraph graph) {
-        this.minimumSpanningTree = new ArrayDeque<>();
+        this.minimumSpanningTree = new ArrayQueue<>();
         Queue<Edge> priorityQueue = buildPriorityQueueFrom(graph);
         UF unionFind = new QuickUnion(graph.getNumberOfVertices());
         while (!priorityQueue.isEmpty()) {
@@ -20,15 +19,15 @@ public class KruskalMST implements MST {
             int w = minEdge.other(v);
             if (!unionFind.connected(v, w)) {
                 unionFind.union(v, w);
-                minimumSpanningTree.add(minEdge);
+                minimumSpanningTree.offer(minEdge);
             }
         }
     }
 
     private Queue<Edge> buildPriorityQueueFrom(EdgeWeightedGraph graph) {
-        Queue<Edge> priorityQueue = new PriorityQueue<>();
+        Queue<Edge> priorityQueue = new PriorityQueue<>(graph.getNumberOfEdges(), true);
         for (Edge edge : graph.edges()) {
-            priorityQueue.add(edge);
+            priorityQueue.offer(edge);
         }
         return priorityQueue;
     }
@@ -40,6 +39,10 @@ public class KruskalMST implements MST {
 
     @Override
     public double weight() {
-        return this.minimumSpanningTree.stream().mapToDouble(Edge::getWeight).sum();
+        double totalWeight = 0;
+        for (Edge edge : minimumSpanningTree) {
+            totalWeight = totalWeight + edge.getWeight();
+        }
+        return totalWeight;
     }
 }

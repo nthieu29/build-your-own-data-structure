@@ -1,9 +1,9 @@
 package algs.graph.undirected;
 
 import algs.graph.Path;
+import algs.stack.ArrayStack;
+import algs.stack.Stack;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
 
 public class UndirectedDFS implements Path {
     private boolean[] marked;
@@ -35,7 +35,7 @@ public class UndirectedDFS implements Path {
     @Override
     public Iterable<Integer> pathTo(int destination) {
         if (!hasPathTo(destination)) return null;
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new ArrayStack<>();
         for (int x = destination; x != source; x = edgeTo[x]) {
             stack.push(x);
         }

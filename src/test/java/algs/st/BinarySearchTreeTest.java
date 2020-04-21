@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 class BinarySearchTreeTest {
     private BinarySearchTree<Integer, String> bst;
@@ -53,6 +54,21 @@ class BinarySearchTreeTest {
         bst.put(1, "one");
         bst.put(2, "two");
         Assertions.assertEquals(3, bst.max());
+    }
+
+    @Test
+    public void minShouldThrowExceptionWhenEmpty() {
+        Assertions.assertThrows(NoSuchElementException.class, () -> bst.min());
+    }
+
+    @Test
+    public void maxShouldThrowExceptionWhenEmpty() {
+        Assertions.assertThrows(NoSuchElementException.class, () -> bst.max());
+    }
+
+    @Test
+    public void getShouldThrowExceptionWhenInputKeyNull() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> bst.get(null));
     }
 
     @Test

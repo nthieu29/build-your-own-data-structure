@@ -3,6 +3,8 @@ package algs.st;
 import algs.queue.ArrayQueue;
 import algs.queue.Queue;
 
+import java.util.NoSuchElementException;
+
 public class BinarySearchTree<Key extends Comparable<Key>, Value> implements SymbolTable<Key, Value> {
     private Node root;
 
@@ -31,6 +33,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> implements Sym
 
     @Override
     public Value get(Key key) {
+        if (key == null) throw new IllegalArgumentException("Key must be not null");
         Node currentNode = root;
         while (currentNode != null) {
             int compare = key.compareTo(currentNode.key);
@@ -80,6 +83,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> implements Sym
     }
 
     public Key min() {
+        if (isEmpty()) throw new NoSuchElementException("Empty symbol table!");
         return min(root).key;
     }
 
@@ -89,6 +93,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> implements Sym
     }
 
     public Key max() {
+        if (isEmpty()) throw new NoSuchElementException("Empty symbol table!");
         return max(root).key;
     }
 

@@ -20,8 +20,8 @@ This repository is a Maven project and it contains popular and basic data struct
     * Binary Search Tree :white_check_mark:
     * 2-3 Tree (Red-Black Tree) :white_check_mark:
     * Hash Table
-        * Separate Chaining
-        * Linear Probing
+        * Separate Chaining :white_check_mark:
+        * Linear Probing :white_check_mark:
 * Graph
     * Undirected Graph :white_check_mark:
         * DFS :white_check_mark:

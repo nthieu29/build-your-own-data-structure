@@ -32,19 +32,15 @@ public class SequentialSearchST<Key, Value> implements SymbolTable<Key, Value> {
 
     public void delete(Key key) {
         if (key == null) throw new IllegalArgumentException("Key must not be null");
-        if (first.key.equals(key)) {
-            first = null;
-            count--;
-        } else if (size() > 1) {
-            Node previousNode = first;
-            for (Node currentNode = first.next; currentNode != null; currentNode = currentNode.next) {
-                if (currentNode.key.equals(key)) {
-                    count--;
-                    previousNode.next = currentNode.next;
-                }
-                previousNode = previousNode.next;
-            }
-        }
+        first = delete(first, key);
+    }
+
+    private Node delete(Node node, Key key) {
+        if (node == null) return null;
+        if (node.key.equals(key))
+            return node.next;
+        node.next = delete(node.next, key);
+        return node;
     }
 
     @Override

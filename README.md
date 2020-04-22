@@ -16,8 +16,9 @@ This repository is a Maven project and it contains popular and basic data struct
     * Quick Find :white_check_mark:
     * Quick Union :white_check_mark:
 * Symbol Table
+    * Sequential Seach (Linked Node) implementation :white_check_mark:
     * Binary Search Tree :white_check_mark:
-    * 2-3 Tree (Red-Black Tree)
+    * 2-3 Tree (Red-Black Tree) :white_check_mark:
     * Hash Table
         * Separate Chaining
         * Linear Probing

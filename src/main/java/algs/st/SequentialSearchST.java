@@ -3,8 +3,6 @@ package algs.st;
 import algs.queue.ArrayQueue;
 import algs.queue.Queue;
 
-import java.util.NoSuchElementException;
-
 public class SequentialSearchST<Key, Value> implements SymbolTable<Key, Value> {
     private Node first;
     private int count;
@@ -52,7 +50,6 @@ public class SequentialSearchST<Key, Value> implements SymbolTable<Key, Value> {
     @Override
     public Value get(Key key) {
         if (key == null) throw new IllegalArgumentException("Key must be not null!");
-        if (isEmpty()) throw new NoSuchElementException("Symbol table is empty!");
         for (Node currentNode = first; currentNode != null; currentNode = currentNode.next) {
             Key currentKey = currentNode.key;
             if (key.equals(currentKey)) return currentNode.value;

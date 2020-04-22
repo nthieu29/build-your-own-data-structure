@@ -8,64 +8,84 @@ import java.util.Arrays;
 import java.util.List;
 
 class SequentialSearchSTTest {
-    private SequentialSearchST<Integer, String> bst;
+    private SequentialSearchST<Integer, String> symbolTable;
 
     @BeforeEach
     public void setupBeforeEachTest() {
-        bst = new SequentialSearchST<>();
+        symbolTable = new SequentialSearchST<>();
     }
 
     @Test
     public void putAndGetShouldWorkCorrectly() {
-        bst.put(1, "one");
-        bst.put(2, "two");
-        Assertions.assertEquals("one", bst.get(1));
-        Assertions.assertEquals("two", bst.get(2));
+        symbolTable.put(1, "one");
+        symbolTable.put(2, "two");
+        Assertions.assertEquals("one", symbolTable.get(1));
+        Assertions.assertEquals("two", symbolTable.get(2));
     }
 
     @Test
     public void sizeShouldBeIncreasedWhenPut() {
-        bst.put(1, "one");
-        Assertions.assertEquals(1, bst.size());
-        bst.put(2, "two");
-        Assertions.assertEquals(2, bst.size());
+        symbolTable.put(1, "one");
+        Assertions.assertEquals(1, symbolTable.size());
+        symbolTable.put(2, "two");
+        Assertions.assertEquals(2, symbolTable.size());
     }
 
     @Test
     public void putShouldOverwriteOldValue() {
-        bst.put(1, "one");
-        Assertions.assertEquals("one", bst.get(1));
-        bst.put(1, "newOne");
-        Assertions.assertEquals("newOne", bst.get(1));
+        symbolTable.put(1, "one");
+        Assertions.assertEquals("one", symbolTable.get(1));
+        symbolTable.put(1, "newOne");
+        Assertions.assertEquals("newOne", symbolTable.get(1));
     }
 
     @Test
     public void getShouldThrowExceptionWhenInputKeyNull() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> bst.get(null));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> symbolTable.get(null));
     }
 
     @Test
     public void isEmptyShouldReturnTrueWhenNoElement() {
-        Assertions.assertTrue(bst.isEmpty());
+        Assertions.assertTrue(symbolTable.isEmpty());
     }
 
     @Test
     public void isEmptyShouldReturnFalseWhenThereIsElement() {
-        bst.put(1, "one");
-        Assertions.assertFalse(bst.isEmpty());
+        symbolTable.put(1, "one");
+        Assertions.assertFalse(symbolTable.isEmpty());
     }
 
     @Test
     public void keysShouldReturnOrderedKeys() {
-        bst.put(3, "three");
-        bst.put(2, "two");
-        bst.put(1, "one");
-        bst.put(0, "zero");
+        symbolTable.put(3, "three");
+        symbolTable.put(2, "two");
+        symbolTable.put(1, "one");
+        symbolTable.put(0, "zero");
         List<Integer> expectedOrder = Arrays.asList(0, 1, 2, 3);
         int indexInExpectedOrder = 0;
-        for (Integer currentKey : bst.keys()) {
+        for (Integer currentKey : symbolTable.keys()) {
             Assertions.assertEquals(expectedOrder.get(indexInExpectedOrder), currentKey);
             indexInExpectedOrder++;
         }
+    }
+
+    @Test
+    public void deleteShouldRemoveKeyAndValue() {
+        symbolTable.put(1, "one");
+        symbolTable.put(2, "two");
+        symbolTable.delete(1);
+        Assertions.assertNull(symbolTable.get(1));
+    }
+
+    @Test
+    public void containsShouldReturnFalseWhenNoElementFound() {
+        symbolTable.put(1, "one");
+        Assertions.assertFalse(symbolTable.contains(2));
+    }
+
+    @Test
+    public void containsShouldReturnTrueWhenElementFound() {
+        symbolTable.put(1, "one");
+        Assertions.assertTrue(symbolTable.contains(1));
     }
 }

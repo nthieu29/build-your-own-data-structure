@@ -5,7 +5,7 @@ import algs.queue.Queue;
 
 import java.util.NoSuchElementException;
 
-public class SequentialSearchST<Key extends Comparable<Key>, Value> implements SymbolTable<Key, Value> {
+public class SequentialSearchST<Key, Value> implements SymbolTable<Key, Value> {
     private Node first;
     private int count;
 

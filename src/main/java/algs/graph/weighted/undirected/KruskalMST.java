@@ -1,4 +1,4 @@
-package algs.graph.weighted;
+package algs.graph.weighted.undirected;
 
 import algs.queue.ArrayQueue;
 import algs.queue.PriorityQueue;

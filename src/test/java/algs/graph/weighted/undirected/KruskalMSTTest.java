@@ -1,4 +1,4 @@
-package algs.graph.weighted;
+package algs.graph.weighted.undirected;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

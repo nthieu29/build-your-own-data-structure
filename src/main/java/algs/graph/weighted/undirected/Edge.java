@@ -1,4 +1,4 @@
-package algs.graph.weighted;
+package algs.graph.weighted.undirected;
 
 import java.util.Objects;
 

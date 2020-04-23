@@ -6,41 +6,39 @@ Inspired by [build-your-own-x](https://github.com/danistefanovic/build-your-own-
 ## Introduction
 This repository is a Maven project and it contains popular and basic data structure implementation and their unit tests:
 * Stack
-    * Array implementation :white_check_mark:
-    * Linked node implementation :white_check_mark:
+    * Array implementation 
+    * Linked node implementation 
 * Queue
-    * Array implementation :white_check_mark:
-    * Linked node implementation :white_check_mark:
-    * Priority Queue (Binary Heap implementation) :white_check_mark:
+    * Array implementation 
+    * Linked node implementation 
+    * Priority Queue (Binary Heap implementation) 
 * Union Find
-    * Quick Find :white_check_mark:
-    * Quick Union :white_check_mark:
+    * Quick Find 
+    * Quick Union 
 * Symbol Table
-    * Sequential Seach (Linked Node) implementation :white_check_mark:
-    * Binary Search Tree :white_check_mark:
-    * 2-3 Tree (Red-Black Tree) :white_check_mark:
+    * Sequential Seach (Linked Node) implementation 
+    * Binary Search Tree 
+    * 2-3 Tree (Red-Black Tree) 
     * Hash Table
-        * Separate Chaining :white_check_mark:
-        * Linear Probing :white_check_mark:
+        * Separate Chaining 
+        * Linear Probing 
 * Graph
-    * Undirected Graph :white_check_mark:
-        * DFS :white_check_mark:
-        * BFS :white_check_mark:
-        * Cycle Detection :white_check_mark:
-        * Connected Component :white_check_mark:
+    * Undirected Graph 
+        * DFS 
+        * BFS 
+        * Cycle Detection 
+        * Connected Component 
     * Directed Graph
-        * DFS :white_check_mark:
-        * BFS :white_check_mark:
-        * Cycle Detection :white_check_mark:
-        * Strong Connected Component :white_check_mark:
+        * DFS 
+        * BFS 
+        * Cycle Detection 
+        * Strong Connected Component 
     * Edge-weighted graph
         * Minimum Spanning Tree
-            * Kruskal's Algorithm :white_check_mark:
+            * Kruskal's Algorithm 
             * Prim's Algorithm
-                * Lazy version
-                * Eager version
-
-Note: :white_check_mark: means implementation and its unit test are available in this repository. Other parts are under construction.
+                * Lazy version (TODO)
+                * Eager version (TODO)
 
 ## How to use
 * Just clone this repository and provide your own data structure implementations to make all tests pass.

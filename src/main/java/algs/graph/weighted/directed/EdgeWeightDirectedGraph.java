@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EdgeWeightDirectedGraph {
-    List<DirectedEdge>[] adj;
+    private List<DirectedEdge>[] adj;
     private int numberOfEdges;
     private int numberOfVertices;
 

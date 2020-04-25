@@ -12,6 +12,7 @@ This repository is a Maven project and it contains popular and basic data struct
     * Array implementation 
     * Linked node implementation 
     * Priority Queue (Binary Heap implementation) 
+    * Index Min Priority Queue
 * Union Find
     * Quick Find 
     * Quick Union 
@@ -34,11 +35,17 @@ This repository is a Maven project and it contains popular and basic data struct
         * Cycle Detection 
         * Strong Connected Component 
     * Edge-weighted graph
-        * Minimum Spanning Tree
-            * Kruskal's Algorithm 
-            * Prim's Algorithm
-                * Lazy version (TODO)
-                * Eager version (TODO)
+        * Edge-weighted undirected graph
+            * Minimum Spanning Tree
+                * Kruskal's Algorithm 
+                * Prim's Algorithm
+                    * Lazy version (TODO)
+                    * Eager version (TODO)
+        * Edge-weighted directed graph
+            * The shortest path
+                * Dijkstra (nonnegative weights)
+                * Acyclic Shortest Path - topological sort (no cycles)
+                * Bellman–Ford  (no negative cycles)
 
 ## How to use
 * Just clone this repository and provide your own data structure implementations to make all tests pass.

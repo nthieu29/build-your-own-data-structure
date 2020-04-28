@@ -25,7 +25,7 @@ This repository is a Maven project and it contains popular and basic data struct
         * Linear Probing
     * String Symbol Table (Symbol table specialized to string keys)
         * Tries
-        * Ternary Search Tree 
+        * Ternary Search Tries 
 * Graph
     * Undirected Graph 
         * DFS 

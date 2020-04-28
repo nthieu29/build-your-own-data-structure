@@ -22,7 +22,10 @@ This repository is a Maven project and it contains popular and basic data struct
     * 2-3 Tree (Red-Black Tree) 
     * Hash Table
         * Separate Chaining 
-        * Linear Probing 
+        * Linear Probing
+    * String Symbol Table (Symbol table specialized to string keys)
+        * Tries
+        * Ternary Search Tree 
 * Graph
     * Undirected Graph 
         * DFS 

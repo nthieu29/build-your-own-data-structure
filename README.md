@@ -49,6 +49,10 @@ This repository is a Maven project and it contains popular and basic data struct
                 * Dijkstra (nonnegative weights)
                 * Acyclic Shortest Path - topological sort (no cycles)
                 * Bellman–Ford  (no negative cycles)
+* Substring Search
+    * Boyer Moore
+    * Knuth-Morris-Pratt (TODO)
+    * Rabin-Karp (TODO)
 
 ## How to use
 * Just clone this repository and provide your own data structure implementations to make all tests pass.

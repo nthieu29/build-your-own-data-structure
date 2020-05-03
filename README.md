@@ -44,6 +44,17 @@ This repository is a Maven project and it contains popular and basic data struct
     * Hash Table
         * Separate Chaining 
         * Linear Probing
+        
+        | Implementation                    | Get (Worst) | Push (Worst)| Get (Average) | Push (Average)|
+        | --------------------------------- |:-----------:| :----------:|:-------------:| :------------:|
+        | Sequential Search                 | n           | n           | n             | n             |
+        | Binary Search Tree                | n           | n           | logn          | logn          |
+        | Red-Black Tree                    | logn        | log         | logn          | logn          |
+        | Hash Table (Separate Chaining)    | n           | n           | 1*            | 1*            |
+        | Hash Table (Linear Probing)       | n           | n           | 1*            | 1*            |
+        
+        (* = *uniform hashing assumption*)
+        
     * String Symbol Table (Symbol table specialized to string keys)
         * Tries
         * Ternary Search Tries 

@@ -81,6 +81,21 @@ This repository is a Maven project and it contains popular and basic data struct
                 * Dijkstra (nonnegative weights)
                 * Acyclic Shortest Path - topological sort (no cycles)
                 * Bellman–Ford  (no negative cycles)
+                
+        | Problem                           | Time      | Space        |
+        | --------------------------------- |:---------:| :-----------:|
+        | DFS                               | E + V     | V            |
+        | BFS                               | E + V     | V            |
+        | Cycle Detection                   | E + V     | V            |
+        | Connected Component               | E + V     | V            |
+        | Strong Connected Component        | E + V     | V            |
+        | MST (Kruskal)                     | ElogE     | E + V        |
+        | Shortest Path (Dijikstra)         | ElogV     | V            |
+        | Shortest Path (Topological Sort)  | E + V     | V            |
+        | Shortest Path (Bellman-Ford)      | V(E + V)  | V            |
+        
+        (E = Edge, V = Vertex)
+        
 * Substring Search
     * Boyer Moore
     * Knuth-Morris-Pratt (TODO)

@@ -6,16 +6,37 @@ Inspired by [build-your-own-x](https://github.com/danistefanovic/build-your-own-
 ## Introduction
 This repository is a Maven project and it contains popular and basic data structure implementation and their unit tests:
 * Stack
-    * Array implementation 
-    * Linked node implementation 
+    * Dynamic Array implementation 
+    * Linked node implementation
+    
+        | Implementation        | Push      | Pop   |
+        | --------------------- |:---------:| :----:|
+        | Dynamic Array         | 1*        | 1*    |
+        | Linked Node           | 1         | 1     |
+        
+        (* = *amortized*)
 * Queue
-    * Array implementation 
+    * Circular Array implementation 
     * Linked node implementation 
-    * Priority Queue (Binary Heap implementation) 
+    * Priority Queue (Binary Heap implementation)
+    
+        | Implementation                  | Offer     | Poll  |
+        | ------------------------------- |:---------:| :---:|
+        | Circular Array                  | 1*        | 1*    |
+        | Linked Node                     | 1         | 1     |
+        | Priority Queue (Binary Heap)    | logn      | logn  |        
+        
+        (* = *amortized*)
+     
     * Index Min Priority Queue
 * Union Find
     * Quick Find 
-    * Quick Union 
+    * Quick Union (Improved with Weighted and Path Compression)
+        | Implementation                    | Union     | isConnected  |
+        | --------------------------------- |:---------:| :-----------:|
+        | Quick Find                        | n         | 1            |
+        | Quick Union (Improved version)    | logn      | logn         |  
+        
 * Symbol Table
     * Sequential Seach (Linked Node) implementation 
     * Binary Search Tree 

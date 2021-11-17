@@ -3,6 +3,13 @@ package algs.queue;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/***
+ * Linked List implementation for Queue.
+ * First -> Node -> Node -> Last.
+ * Poll will return from first pointer.
+ * Offer will append from lost pointer.
+ * @param <E>
+ */
 public class LinkedQueue<E> implements Queue<E> {
     private Node first;
     private Node last;

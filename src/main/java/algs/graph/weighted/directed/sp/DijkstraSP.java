@@ -3,27 +3,33 @@ package algs.graph.weighted.directed.sp;
 
 import algs.graph.weighted.directed.DirectedEdge;
 import algs.graph.weighted.directed.EdgeWeightDirectedGraph;
-import algs.queue.IndexMinPQ;
 import algs.stack.ArrayStack;
 import algs.stack.Stack;
+
+import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 
 public class DijkstraSP implements ShortestPath {
     private DirectedEdge[] edgeTo;
     private double[] distTo;
-    private IndexMinPQ<Double> queue;
+    private Queue<Integer> queue;
+    private boolean[] marked;
 
     public DijkstraSP(EdgeWeightDirectedGraph graph, int source) {
         this.edgeTo = new DirectedEdge[graph.getNumberOfVertices()];
         this.distTo = new double[graph.getNumberOfVertices()];
-        this.queue = new IndexMinPQ<>(graph.getNumberOfVertices());
+        this.queue = new PriorityQueue<>(Comparator.comparingDouble(a -> distTo[a]));
+        this.marked = new boolean[graph.getNumberOfVertices()];
         for (int i = 0; i < graph.getNumberOfVertices(); i++) {
             distTo[i] = Double.MAX_VALUE;
         }
         distTo[source] = 0;
-        queue.insert(source, 0.0);
+        queue.offer(source);
         while (!queue.isEmpty()) {
-            int currentVertex = queue.delMin();
+            int currentVertex = queue.poll();
+            marked[currentVertex] = true;
             for (DirectedEdge edge : graph.adj(currentVertex)) {
                 relax(edge);
             }
@@ -36,11 +42,9 @@ public class DijkstraSP implements ShortestPath {
         if (distTo[to] > distTo[from] + edge.getWeight()) {
             distTo[to] = distTo[from] + edge.getWeight();
             edgeTo[to] = edge;
-            if (queue.contains(to)) {
-                queue.decreaseKey(to, distTo[to]);
-            } else {
-                queue.insert(to, distTo[to]);
-            }
+            if (!marked[to]) {
+                queue.offer(to);
+            } // else if marked[to] -> remove -> add again
         }
     }
 

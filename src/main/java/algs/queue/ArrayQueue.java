@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 /***
  * Array implementation for Queue.
  * Main idea is use the circular array. Circular array is the array with last index + 1 = first index.
- * We will need to keep track the first index pointer and last index pointer, current count.
+ * We will need to keep track the first index pointer and the last index pointer, the current count.
  * @param <E>
  */
 public class ArrayQueue<E> implements Queue<E> {

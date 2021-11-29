@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
 /***
  * Linked List implementation for Queue.
  * First -> Node -> Node -> Last.
- * Poll will return from first pointer.
- * Offer will append from lost pointer.
+ * Poll will return from the first pointer.
+ * Offer will append from the last pointer.
  * @param <E>
  */
 public class LinkedQueue<E> implements Queue<E> {

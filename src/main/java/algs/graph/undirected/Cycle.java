@@ -11,12 +11,12 @@ public class Cycle {
         }
     }
 
-    private void dfs(UndirectedGraph graph, int v, int u) {
-        marked[v] = true;
-        for (Integer w : graph.adj(v)) {
-            if (!marked[w]) {
-                dfs(graph, w, v);
-            } else if (w != u) {
+    private void dfs(UndirectedGraph graph, int toVertex, int fromVertex) {
+        marked[toVertex] = true;
+        for (Integer adjacentVertex : graph.adj(toVertex)) {
+            if (!marked[adjacentVertex]) {
+                dfs(graph, adjacentVertex, toVertex);
+            } else if (adjacentVertex != fromVertex) {
                 hasCycle = true;
             }
         }

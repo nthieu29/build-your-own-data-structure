@@ -6,6 +6,14 @@ import algs.graph.weighted.directed.EdgeWeightDirectedGraph;
 import algs.stack.ArrayStack;
 import algs.stack.Stack;
 
+/***
+ * Compute the shortest path in a directed weight graph by topological sort.
+ * Idea:
+ *  - Consider the vertices in topological order.
+ *      + Relax all edges pointing from that vertex. (Relax means updating the distTo and edgeTo array)
+ * Time complexity: E + V
+ * Space complexity: V
+ */
 public class AcyclicSP implements ShortestPath {
     private double[] distTo;
     private DirectedEdge[] edgeTo;

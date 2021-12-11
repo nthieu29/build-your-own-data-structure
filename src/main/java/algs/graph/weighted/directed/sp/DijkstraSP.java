@@ -10,6 +10,14 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/***
+ * Compute the shortest path of the non-negative weight directed graph by Dijkstra's algorithm.
+ * Main idea:
+ * - Consider vertices in increasing order of distance from source (non-tree vertex with lowest distTo[] value).
+ * - Add vertex to the tree and relax all edges pointing from that vertex.
+ * Time complexity: E log V
+ * Space complexity: V
+ */
 
 public class DijkstraSP implements ShortestPath {
     private DirectedEdge[] edgeTo;

@@ -8,6 +8,14 @@ import algs.queue.Queue;
 import algs.stack.ArrayStack;
 import algs.stack.Stack;
 
+/***
+ * Bellman-Ford algorithm to find the shortest path or detect a negative cycle in digraph.
+ * Main idea:
+ * - Init distTo[source] = 0 and distTo[others] = Double.MAX_VALUE.
+ * - Repeat V time: relax all edges.
+ * Time complexity: V (V + E)
+ * Space complexity: V
+ */
 public class BellmanFordSP implements ShortestPath {
     private double[] distTo;
     private DirectedEdge[] edgeTo;
@@ -49,6 +57,7 @@ public class BellmanFordSP implements ShortestPath {
                     onQueue[toVertex] = true;
                 }
             }
+            // Calling findNegativeCycle every Vth pass
             if (++cost % graph.getNumberOfVertices() == 0) {
                 findNegativeCycle();
                 if (hasNegativeCycle()) return;
@@ -56,6 +65,10 @@ public class BellmanFordSP implements ShortestPath {
         }
     }
 
+    /***
+     * The digraph has a negative cycle reachable from the source if and only if the queue is nonempty after the Vth
+     * pass through all the edges.
+     */
     private void findNegativeCycle() {
         int numberOfVertices = edgeTo.length;
         EdgeWeightDirectedGraph graph = new EdgeWeightDirectedGraph(numberOfVertices);

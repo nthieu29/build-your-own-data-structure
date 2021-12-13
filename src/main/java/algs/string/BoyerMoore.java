@@ -15,7 +15,8 @@ public class BoyerMoore extends SubStringSearch {
             right[i] = -1;
         }
         for (int i = 0; i < pattern.length(); i++) {
-            right[pattern.charAt(i)] = i;
+            char currentChar = pattern.charAt(i);
+            right[currentChar] = i;
         }
     }
 
@@ -26,7 +27,7 @@ public class BoyerMoore extends SubStringSearch {
         int skip;
         for (int pointerInText = 0; pointerInText < textLength - patternLength; pointerInText = pointerInText + skip) {
             skip = 0;
-            for (int pointerInPattern = pattern.length() - 1; pointerInPattern >= 0; pointerInPattern--) {
+            for (int pointerInPattern = patternLength - 1; pointerInPattern >= 0; pointerInPattern--) {
                 char charInPattern = pattern.charAt(pointerInPattern);
                 char charInText = text.charAt(pointerInText + pointerInPattern);
                 if (charInPattern != charInText) {

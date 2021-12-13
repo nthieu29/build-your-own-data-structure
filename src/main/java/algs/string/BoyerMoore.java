@@ -24,18 +24,18 @@ public class BoyerMoore extends SubStringSearch {
         int patternLength = pattern.length();
         int textLength = text.length();
         int skip;
-        for (int i = 0; i < textLength - patternLength; i = i + skip) {
+        for (int pointerInText = 0; pointerInText < textLength - patternLength; pointerInText = pointerInText + skip) {
             skip = 0;
-            for (int j = pattern.length() - 1; j >= 0; j--) {
-                char charInPattern = pattern.charAt(j);
-                char charInText = text.charAt(i + j);
+            for (int pointerInPattern = pattern.length() - 1; pointerInPattern >= 0; pointerInPattern--) {
+                char charInPattern = pattern.charAt(pointerInPattern);
+                char charInText = text.charAt(pointerInText + pointerInPattern);
                 if (charInPattern != charInText) {
-                    skip = Math.max(1, j - right[charInText]);
+                    skip = Math.max(1, pointerInPattern - right[charInText]);
                     break;
                 }
             }
-            if (skip == 0) return i;
+            if (skip == 0) return pointerInText; // found
         }
-        return textLength;
+        return textLength; // not found
     }
 }
